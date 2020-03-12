@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       {items.map(item => (
-        <div>{item.value}</div>
+        <div key={item.id}>{item.value}</div>
       ))}
     </div>
   );
