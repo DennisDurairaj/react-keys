@@ -34,7 +34,7 @@ function App() {
       </button>
       {items.length > 0 &&
         items.map(item => (
-          <div>
+          <div key={item.id}>
             <button onClick={() => removeItem(item)}>remove</button>{" "}
             {item.value} <input />
           </div>
