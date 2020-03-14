@@ -21,13 +21,24 @@ function App() {
     });
     setItems([...items, itemToAdd]);
   };
+
+  const removeItem = item => {
+    const newItems = items.filter(stateItem => stateItem.id !== item.id);
+    setItems(newItems);
+  };
+
   return (
     <div className="App">
       <button disabled={items.length === itemList.length} onClick={addItem}>
         Add item
       </button>
       {items.length > 0 &&
-        items.map(item => <div key={item.id}>{item.value}</div>)}
+        items.map(item => (
+          <div key={item.id}>
+            {item.value}{" "}
+            <button onClick={() => removeItem(item)}>remove</button>
+          </div>
+        ))}
     </div>
   );
 }
